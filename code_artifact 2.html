@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шпаргалка НМТ: Реформи гетьмана Павла Скоропадського</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#090d16',
+                            950: '#05080e',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(245, 158, 11, 0.4);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(245, 158, 11, 0.7);
+        }
+        .highlight {
+            background-color: rgba(245, 158, 11, 0.25);
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-navy-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-navy-900/80 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
+            
+            <!-- Logo & Title -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-900 font-extrabold text-xl shadow-md shadow-amber-500/20">
+                    🇺🇦
+                </div>
+                <div>
+                    <h1 class="font-bold text-base sm:text-lg leading-tight text-slate-900 dark:text-white">
+                        Історія України <span class="text-amber-500 font-semibold text-xs sm:text-sm block sm:inline">| НМТ / ЗНО</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">Реформи гетьмана Павла Скоропадського (1918)</p>
+                </div>
+            </div>
+
+            <!-- Global Action Controls -->
+            <div class="flex items-center gap-2">
+                <!-- Text Size Adjuster -->
+                <div class="flex items-center bg-slate-200/80 dark:bg-slate-800/80 rounded-lg p-1 border border-slate-300 dark:border-slate-700">
+                    <button id="btn-text-decrease" title="Зменшити шрифт" class="px-2 py-1 text-xs font-bold rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition">
+                        A-
+                    </button>
+                    <span id="text-size-label" class="px-1 text-[10px] font-mono text-slate-500 dark:text-slate-400">100%</span>
+                    <button id="btn-text-increase" title="Збільшити шрифт" class="px-2 py-1 text-xs font-bold rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition">
+                        A+
+                    </button>
+                </div>
+
+                <!-- Flashcard Test Toggle -->
+                <button id="btn-quiz-toggle" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold text-xs sm:text-sm flex items-center gap-1.5 transition shadow-sm">
+                    <i class="fa-solid fa-brain"></i>
+                    <span class="hidden md:inline">Флеш-картки</span>
+                </button>
+
+                <!-- Dark/Light Theme Toggle -->
+                <button id="btn-theme-toggle" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-300 dark:hover:bg-slate-700 transition" title="Змінити тему">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6" id="app-container">
+        
+        <!-- Hero Banner -->
+        <section class="bg-gradient-to-r from-slate-900 via-navy-900 to-slate-900 border border-slate-800 text-white rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                        <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                            29 квітня — 14 грудня 1918 р.
+                        </span>
+                        <span class="bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                            Українська Держава
+                        </span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                        Павло Скоропадський: Реформи та здобутки Гетьманату
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                        Інтерактивний онлайн-конспект для підготовки до ЗНО/НМТ. Форма правління: авторитарний режим із відновленням приватної власності та золотою добою культурного будівництва.
+                    </p>
+                </div>
+                
+                <!-- Quick Stats Badge -->
+                <div class="flex gap-3 bg-white/5 border border-white/10 p-3 rounded-xl w-full md:w-auto justify-around">
+                    <div class="text-center px-2">
+                        <div class="text-amber-400 font-extrabold text-lg sm:text-xl">7.5</div>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-wider">Місяців власності</div>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div class="text-center px-2">
+                        <div class="text-amber-400 font-extrabold text-lg sm:text-xl">30+</div>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-wider">Визнань світу</div>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div class="text-center px-2">
+                        <div class="text-amber-400 font-extrabold text-lg sm:text-xl">УАН</div>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-wider">Академія наук</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Category Filters Toolbar -->
+        <section class="space-y-4">
+            <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
+                <!-- Search Bar -->
+                <div class="relative w-full sm:max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="search-input" placeholder="Шукати (напр. Вернадський, Сенат, гривня, Мотовилівка)..." 
+                           class="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 transition shadow-sm">
+                    <button id="btn-clear-search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xs p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Bookmark Filter Button -->
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                    <button id="btn-favorites-filter" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-medium border border-slate-300 dark:border-slate-700 bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 hover:border-amber-500 transition flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-bookmark text-amber-500"></i>
+                        <span>Збережені (<span id="fav-count">0</span>)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories Filter -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 pt-1 no-scrollbar border-b border-slate-200 dark:border-slate-800" id="category-tabs">
+                <button data-cat="all" class="cat-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-amber-500 text-slate-950 border-amber-500">
+                    <i class="fa-solid fa-border-all mr-1.5"></i>Усі розділи
+                </button>
+                <button data-cat="overview" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500">
+                    📋 Огляд & Контекст
+                </button>
+                <button data-cat="state" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500">
+                    🏛️ Держава & Дипломатія
+                </button>
+                <button data-cat="economy" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500">
+                    💰 Економіка & Земля
+                </button>
+                <button data-cat="culture" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500 relative">
+                    🎓 Культура & Освіта
+                    <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-white ml-1">ТОП</span>
+                </button>
+                <button data-cat="military" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500">
+                    ⚔️ Армія
+                </button>
+                <button data-cat="fall" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500">
+                    🧠 Причини падіння
+                </button>
+                <button data-cat="summary" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition border bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-amber-500">
+                    📊 Таблиця НМТ
+                </button>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Grid -->
+        <div id="content-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Summary Table Section -->
+        <section id="summary-table-section" class="hidden bg-white dark:bg-navy-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="text-amber-500">📊</span> Зведена таблиця для НМТ
+                </h3>
+                <button class="copy-btn text-xs bg-slate-100 dark:bg-slate-800 hover:bg-amber-500 hover:text-slate-950 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 font-semibold transition flex items-center gap-1.5" data-target="summary-table-text">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Скопіювати таблицю</span>
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs sm:text-sm text-left border-collapse" id="summary-table-text">
+                    <thead>
+                        <tr class="bg-slate-100 dark:bg-navy-800 text-slate-900 dark:text-amber-400 border-b border-slate-300 dark:border-slate-700">
+                            <th class="p-3 font-bold uppercase tracking-wider w-1/4">Сфера</th>
+                            <th class="p-3 font-bold uppercase tracking-wider w-2/4">Головні реформи та події</th>
+                            <th class="p-3 font-bold uppercase tracking-wider w-1/4">Маркери НМТ</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                            <td class="p-3 font-semibold text-amber-600 dark:text-amber-400">📋 Огляд</td>
+                            <td class="p-3">29 квітня — 14 грудня 1918 р. Переворот за підтримки німців. Повна назва: Українська Держава.</td>
+                            <td class="p-3 font-mono text-xs">29 квітня 1918, Хліборобський з'їзд, Авторитаризм</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                            <td class="p-3 font-semibold text-amber-600 dark:text-amber-400">🏛️ Держава & Дипломатія</td>
+                            <td class="p-3">Скасовано закони УНР; видано «Закони про тимчасовий державний устрій України»; створено Сенат; визнання 30+ державами.</td>
+                            <td class="p-3 font-mono text-xs">Закони про устрій, Сенат, Попередній мир з ВСРР</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                            <td class="p-3 font-semibold text-amber-600 dark:text-amber-400">💰 Економіка & Земля</td>
+                            <td class="p-3">Відновлення приватної власності; повернення землі поміщикам; створення Держбанку та введення гривні.</td>
+                            <td class="p-3 font-mono text-xs">Гривня, Поміщицька земля, Земельний банк</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 bg-amber-500/5">
+                            <td class="p-3 font-semibold text-amber-600 dark:text-amber-400">🎓 Культура (ТОП)</td>
+                            <td class="p-3">Заснування УАН (В. Вернадський); відкриття 2 університетів (Київ, Кам’янець-Подільський); Нац. бібліотека; 150+ українських гімназій.</td>
+                            <td class="p-3 font-mono text-xs">УАН (лист. 1918), В. Вернадський, Кам’янець-Подільський Університет</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                            <td class="p-3 font-semibold text-amber-600 dark:text-amber-400">⚔️ Військо</td>
+                            <td class="p-3">Сердюцька дивізія; загін Січових Стрільців (Є. Коновалець); австро-німецькі обмеження.</td>
+                            <td class="p-3 font-mono text-xs">Сердюцька дивізія, Євген Коновалець</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                            <td class="p-3 font-semibold text-amber-600 dark:text-amber-400">🧠 Падіння</td>
+                            <td class="p-3">Грамота про федерацію з Росією (14 листоп.); повстання Директорії УНР; поразка під Мотовилівкою (18 листоп.); зречення 14 грудня.</td>
+                            <td class="p-3 font-mono text-xs">14 листопада 1918, Директорія УНР, Мотовилівка, 14 грудня 1918</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Quiz Flashcards Modal -->
+    <div id="quiz-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative flex flex-col gap-5">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">⚡</span>
+                    <h3 class="font-bold text-lg text-slate-900 dark:text-white">Флеш-картки для самоперевірки</h3>
+                </div>
+                <button id="btn-close-quiz" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Flashcard Box -->
+            <div class="min-h-[220px] flex flex-col justify-center items-center text-center p-6 bg-slate-50 dark:bg-navy-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 relative cursor-pointer group select-none" id="flashcard-box">
+                <span class="absolute top-3 left-3 text-[10px] font-mono text-slate-400 uppercase tracking-widest" id="card-step-indicator">Питання 1 з 6</span>
+                
+                <div id="card-question" class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white my-auto leading-relaxed">
+                    Завантаження...
+                </div>
+
+                <div id="card-answer" class="text-sm font-medium text-amber-600 dark:text-amber-400 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 w-full hidden">
+                    Відповідь...
+                </div>
+
+                <p class="text-[11px] text-slate-400 mt-4 group-hover:text-amber-500 transition">
+                    <i class="fa-solid fa-rotate mr-1"></i>Натисніть на картку, щоб перевернути
+                </p>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex items-center justify-between gap-3 pt-1">
+                <button id="btn-prev-card" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-semibold transition">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Назад
+                </button>
+                <button id="btn-next-card" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold transition shadow-md">
+                    Наступне <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 px-4 py-2.5 rounded-xl shadow-2xl text-xs sm:text-sm font-semibold flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toast-message">Текст скопійовано!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-navy-900 py-4 text-center text-xs text-slate-500 dark:text-slate-400">
+        <p>Шпаргалка з історії України • Підготовка до НМТ / ЗНО • Тема: Гетьманат Павла Скоропадського</p>
+    </footer>
+
+    <!-- App Logic -->
+    <script>
+        const topicsData = [
+            {
+                id: 'overview-1',
+                category: 'overview',
+                title: '📋 Загальний огляд & Контекст Гетьманату',
+                badge: 'Хронологія',
+                badgeColor: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+                summary: 'Прихід до влади, терміни існування та соціально-політичні опори.',
+                items: [
+                    '<strong>Хронологічні межі:</strong> <span class="highlight">29 квітня — 14 грудня 1918 р.</span> (7,5 місяців).',
+                    '<strong>Подія приходу:</strong> Державний переворот на Всеукраїнському з’їзді хліборобів у Києві за прямої підтримки окупаційних німецько-австрійських військ.',
+                    '<strong>Офіційна назва:</strong> <span class="highlight">Українська Держава</span> (замість скасованої назви УНР).',
+                    '<strong>Політичний режим:</strong> Авторитарний (зосередження усієї вищої виконавчої, законодавчої та судової влади у руках гетьмана Павла Скоропадського).',
+                    '<strong>Соціальна опора:</strong> Заможне селянство (хлібороби), великі землевласники, промисловці, колишній чиновницький апарат та німецька окупаційна адміністрація.'
+                ],
+                nmtKey: '29 квітня 1918 р., Всеукраїнський з’їзд хліборобів, Авторитаризм, Українська Держава.'
+            },
+            {
+                id: 'state-1',
+                category: 'state',
+                title: '🏛️ Державне будівництво та правопорядок',
+                badge: 'Законодавство',
+                badgeColor: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+                summary: 'Скасування інститутів УНР та розбудова виконавчої і судової гілок.',
+                items: [
+                    '<strong>Скасування законів УНР:</strong> Припинено чинність конституції УНР та законів Центральної Ради.',
+                    '<strong>Основні закони:</strong> Опубліковано «Грамоту до всього українського народу» та <span class="highlight">«Закони про тимчасовий державний устрій України»</span>.',
+                    '<strong>Судова система:</strong> Відновлено діяльність <span class="highlight">Українського Сенату</span> як вищої судової інстанції.',
+                    '<strong>Правопорядок:</strong> Створено <span class="highlight">Державну варту</span> (спеціальний орган правопорядку / поліцію).'
+                ],
+                nmtKey: 'Закони про тимчасовий державний устрій, Сенат, Державна варта.'
+            },
+            {
+                id: 'state-2',
+                category: 'state',
+                title: '🌐 Зовнішня політика та дипломатія',
+                badge: 'Дипломатія',
+                badgeColor: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+                summary: 'Міжнародне визнання України та стосунки з сусідніми державами.',
+                items: [
+                    '<strong>Міжнародне визнання:</strong> Україну де-факто чи де-юре визнали понад <span class="highlight">30 країн</span> світу.',
+                    '<strong>Відносини з Радянською Росією:</strong> У червні 1918 р. укладено <span class="highlight">попередній мирний договір</span> між Українською Державою та ВСРР (припинення бойових дій).',
+                    '<strong>Дипломатичні посольства:</strong> Відкрито українські представництва у Німеччині, Австро-Угорщині, Туреччині, Болгарії, Швейцарії.',
+                    '<strong>Конфлікти:</strong> Напруженість із Румунією через окупацію Бессарабії (закінчилася митною війною).'
+                ],
+                nmtKey: 'Попередній мир із Радянською Росією (червень 1918), Визнання 30+ державами.'
+            },
+            {
+                id: 'economy-1',
+                category: 'economy',
+                title: '💰 Економічні реформи та грошова система',
+                badge: 'Економіка',
+                badgeColor: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+                summary: 'Відновлення приватної власності та фінансової стабільності.',
+                items: [
+                    '<strong>Реставрація ринку:</strong> Відновлено приватну власність на фабрики, заводи, землю та свободу торгівлі.',
+                    '<strong>Банківська система:</strong> Засновано <span class="highlight">Український державний банк</span> та Земельний банк.',
+                    '<strong>Національна валюта:</strong> Запроваджено та зміцнено національну грошову одиницю — <span class="highlight">гривню</span>.',
+                    '<strong>Промисловість:</strong> Скасовано 8-годинний робочий день, обмежено страйковий рух робітників.'
+                ],
+                nmtKey: 'Гривня, Український державний банк, відновлення приватної власності.'
+            },
+            {
+                id: 'economy-2',
+                category: 'economy',
+                title: '🌾 Аграрна політика та селянська криза',
+                badge: 'Земельна реформа',
+                badgeColor: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+                summary: 'Повернення землі поміщикам та конфлікт із селянством.',
+                items: [
+                    '<strong>Повернення маєтків:</strong> Поміщикам повернуто землі, які були конфісковані селянами за часів УНР.',
+                    '<strong>Реквізиції:</strong> Проведення вилучення зерна та майна у селян для виконання зобов’язань перед Німеччиною.',
+                    '<strong>Проєкт земельної реформи:</strong> Намір розпродати великі поміщицькі маєтки селянам ділянками до 25 десятин через <span class="highlight">Державний земельний банк</span>.',
+                    '<strong>Наслідки:</strong> Масовий селянський повстанський рух (Н. Махно, М. Григор’єв).'
+                ],
+                nmtKey: 'Повернення землі поміщикам, Зернові реквізиції, Державний земельний банк.'
+            },
+            {
+                id: 'culture-1',
+                category: 'culture',
+                title: '🎓 Академія наук та Вища освіта',
+                badge: 'ТОП НМТ',
+                badgeColor: 'bg-emerald-500 text-slate-950 font-bold',
+                summary: 'Золота доба у розбудові національної науки та вищої школи.',
+                items: [
+                    '<strong>УАН:</strong> <span class="highlight">Листопад 1918 р.</span> — видано декрет про заснування Української академії наук. Перший президент — <span class="highlight">Володимир Вернадський</span>.',
+                    '<strong>Нові Університети:</strong> Відкрито два державні українські університети — у <span class="highlight">Києві</span> та <span class="highlight">Кам’янці-Подільському</span>.',
+                    '<strong>Кафедри українознавства:</strong> Засновано українознавчі кафедри в Одесі, Харкові та Катеринославі.'
+                ],
+                nmtKey: 'УАН (В. Вернадський) - листопад 1918 р., Кам’янець-Подільський університет.'
+            },
+            {
+                id: 'culture-2',
+                category: 'culture',
+                title: '📚 Школи, Бібліотека та Культура',
+                badge: 'Культура',
+                badgeColor: 'bg-pink-500/10 text-pink-500 border-pink-500/20',
+                summary: 'Українізація шкільної освіти та заснування головних культурних інституцій.',
+                items: [
+                    '<strong>Шкільництво:</strong> Відкрито понад <span class="highlight">150 українських гімназій</span>; запроваджено обов’язкове вивчення української мови, історії та географії.',
+                    '<strong>Бібліотека:</strong> Засновано Національну бібліотеку Української Держави (нині Національна бібліотека ім. В. І. Вернадського).',
+                    '<strong>Архів та Музей:</strong> Засновано Національний архів України та Національний історичний музей.',
+                    '<strong>Мистецтво:</strong> Створено Український драматичний театр (П. Саксаганський) та Державну хорову капелу.'
+                ],
+                nmtKey: '150+ українських гімназій, Національна бібліотека України.'
+            },
+            {
+                id: 'military-1',
+                category: 'military',
+                title: '⚔️ Військове будівництво',
+                badge: 'Військо',
+                badgeColor: 'bg-red-500/10 text-red-500 border-red-500/20',
+                summary: 'Спроба створення регулярного війська в умовах німецького контролю.',
+                items: [
+                    '<strong>План розбудови:</strong> Розроблено план створення армії за призовом на <span class="highlight">300 тисяч осіб</span>.',
+                    '<strong>Елітні формування:</strong> Створено <span class="highlight">Сердюцьку дивізію</span> (гвардійська частина із зажних селян); збережено загін <span class="highlight">Січових Стрільців</span> на чолі з <span class="highlight">Євгеном Коновальцем</span>.',
+                    '<strong>Офіцерські кадри:</strong> Залучено досвідчені офіцерські кадри колишньої царської армії.',
+                    '<strong>Заборона німців:</strong> Окупаційне німецьке командування гальмувало формування повноцінної української армії.'
+                ],
+                nmtKey: 'Сердюцька дивізія, Євген Коновалець, Окупаційні обмеження.'
+            },
+            {
+                id: 'fall-1',
+                category: 'fall',
+                title: '🧠 Причини падіння та Анексія влади',
+                badge: 'Падіння',
+                badgeColor: 'bg-red-600/20 text-red-400 border-red-500/30',
+                summary: 'Зовнішня та внутрішня криза, що призвела до повалення Гетьманату.',
+                items: [
+                    '<strong>Втрата зовнішнього союзника:</strong> Поразка Німеччини та Австро-Угорщини у Першій світовій війні (листопад 1918) та виведення їхніх військ.',
+                    '<strong>Грамота про федерацію:</strong> <span class="highlight">14 листопада 1918 р.</span> — Скоропадський видав Грамоту про федерацію з майбутньою непольшовицькою Росією (спроба здобути прихильність Антанти).',
+                    '<strong>Антигетьманське повстання:</strong> Створення <span class="highlight">Директорії УНР</span> (Винниченко, Петлюра) та вибух повстання.',
+                    '<strong>Бій під Мотовилівкою:</strong> <span class="highlight">18 листопада 1918 р.</span> — розгром гетьманців (сердюків) військами Січових Стрільців.',
+                    '<strong>Зречення:</strong> <span class="highlight">14 грудня 1918 р.</span> — Скоропадський підписав акт про зречення влади.'
+                ],
+                nmtKey: '14 листопада 1918 (Грамота про федерацію), Директорія УНР, Бій під Мотовилівкою, 14 грудня 1918 (Зречення).'
+            }
+        ];
+
+        const flashcards = [
+            {
+                q: "Які точно хронологічні межі існування Гетьманату Павла Скоропадського?",
+                a: "29 квітня — 14 грудня 1918 року."
+            },
+            {
+                q: "Хто став першим президентом Української академії наук (УАН), створеної у листопаді 1918 р.?",
+                a: "Володимир Вернадський."
+            },
+            {
+                q: "Яка була офіційна назва української держави за часи Гетьманату?",
+                a: "Українська Держава."
+            },
+            {
+                q: "Яку гвардійську дивізію із заможних селян сформував Скоропадський?",
+                a: "Сердюцьку дивізію."
+            },
+            {
+                q: "Який документ, виданий 14 листопада 1918 р., спровокував Антигетьманське повстання Директорії?",
+                a: "Грамота про федерацію з майбутньою непольшовицькою Росією."
+            },
+            {
+                q: "У якому вирішальному бою 18 листопада 1918 р. Січові Стрільці розгромили гетьманські війська?",
+                a: "Бій під Мотовилівкою."
+            }
+        ];
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let favorites = JSON.parse(localStorage.getItem('hetman_favs') || '[]');
+        let fontScale = parseInt(localStorage.getItem('hetman_font_scale') || '100');
+        let currentFlashcardIndex = 0;
+        let isOnlyFavsFilter = false;
+
+        const contentContainer = document.getElementById('content-container');
+        const summaryTableSection = document.getElementById('summary-table-section');
+        const searchInput = document.getElementById('search-input');
+        const btnClearSearch = document.getElementById('btn-clear-search');
+        const favCountLabel = document.getElementById('fav-count');
+        const btnFavFilter = document.getElementById('btn-favorites-filter');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            applyFontScale(fontScale);
+            renderContent();
+            updateFavCount();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('btn-theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('btn-text-increase').addEventListener('click', () => changeFontScale(10));
+            document.getElementById('btn-text-decrease').addEventListener('click', () => changeFontScale(-10));
+
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                btnClearSearch.classList.toggle('hidden', searchQuery === '');
+                renderContent();
+            });
+
+            btnClearSearch.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                btnClearSearch.classList.add('hidden');
+                renderContent();
+            });
+
+            document.querySelectorAll('#category-tabs .cat-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#category-tabs .cat-btn').forEach(b => {
+                        b.classList.remove('bg-amber-500', 'text-slate-950', 'border-amber-500', 'active');
+                        b.classList.add('bg-white', 'dark:bg-navy-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
+                    });
+                    btn.classList.remove('bg-white', 'dark:bg-navy-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
+                    btn.classList.add('bg-amber-500', 'text-slate-950', 'border-amber-500', 'active');
+
+                    currentCategory = btn.getAttribute('data-cat');
+                    isOnlyFavsFilter = false;
+                    btnFavFilter.classList.remove('bg-amber-500', 'text-slate-950');
+                    renderContent();
+                });
+            });
+
+            btnFavFilter.addEventListener('click', () => {
+                isOnlyFavsFilter = !isOnlyFavsFilter;
+                btnFavFilter.classList.toggle('bg-amber-500', isOnlyFavsFilter);
+                btnFavFilter.classList.toggle('text-slate-950', isOnlyFavsFilter);
+                renderContent();
+            });
+
+            document.getElementById('btn-quiz-toggle').addEventListener('click', openQuizModal);
+            document.getElementById('btn-close-quiz').addEventListener('click', closeQuizModal);
+            document.getElementById('flashcard-box').addEventListener('click', toggleFlashcardAnswer);
+            document.getElementById('btn-next-card').addEventListener('click', () => navigateFlashcard(1));
+            document.getElementById('btn-prev-card').addEventListener('click', () => navigateFlashcard(-1));
+        }
+
+        function renderContent() {
+            contentContainer.innerHTML = '';
+
+            if (currentCategory === 'summary') {
+                summaryTableSection.classList.remove('hidden');
+                contentContainer.classList.add('hidden');
+                return;
+            } else {
+                summaryTableSection.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+            }
+
+            const filtered = topicsData.filter(topic => {
+                const matchCategory = currentCategory === 'all' || topic.category === currentCategory;
+                const fullText = (topic.title + ' ' + topic.summary + ' ' + topic.items.join(' ') + ' ' + topic.nmtKey).toLowerCase();
+                const matchSearch = searchQuery === '' || fullText.includes(searchQuery);
+                const matchFav = !isOnlyFavsFilter || favorites.includes(topic.id);
+                return matchCategory && matchSearch && matchFav;
+            });
+
+            if (filtered.length === 0) {
+                contentContainer.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-400">
+                        <i class="fa-solid fa-folder-open text-4xl mb-3 text-slate-500"></i>
+                        <p class="font-semibold">Нічого не знайдено</p>
+                        <p class="text-xs mt-1">Спробуйте змінити запит або обрану категорію.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(topic => {
+                const isFav = favorites.includes(topic.id);
+                
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-navy-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition flex flex-col justify-between relative group";
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border ${topic.badgeColor}">
+                                ${topic.badge}
+                            </span>
+                            <div class="flex items-center gap-1">
+                                <button onclick="toggleFavorite('${topic.id}')" class="p-1.5 rounded-lg text-slate-400 hover:text-amber-500 transition" title="Зберегти в обране">
+                                    <i class="fa-${isFav ? 'solid' : 'regular'} fa-bookmark ${isFav ? 'text-amber-500' : ''}"></i>
+                                </button>
+                                <button onclick="copyTopicContent('${topic.id}')" class="p-1.5 rounded-lg text-slate-400 hover:text-amber-500 transition" title="Копіювати">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-2 leading-snug">
+                            ${highlightSearch(topic.title)}
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 italic">
+                            ${highlightSearch(topic.summary)}
+                        </p>
+
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 mb-4 list-disc list-inside leading-relaxed">
+                            ${topic.items.map(item => `<li>${highlightSearch(item)}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="mt-2 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-start gap-2 bg-slate-50 dark:bg-navy-800/40 p-2.5 rounded-xl">
+                        <span class="text-amber-500 text-xs font-bold whitespace-nowrap">🔑 Для НМТ:</span>
+                        <span class="text-xs font-mono text-slate-600 dark:text-slate-300">
+                            ${highlightSearch(topic.nmtKey)}
+                        </span>
+                    </div>
+                `;
+
+                contentContainer.appendChild(card);
+            });
+
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = e.currentTarget.getAttribute('data-target');
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        copyToClipboard(targetEl.innerText);
+                    }
+                });
+            });
+        }
+
+        function highlightSearch(text) {
+            if (!searchQuery) return text;
+            const regex = new RegExp(`(${searchQuery})`, 'gi');
+            return text.replace(regex, '<mark class="highlight">$1</mark>');
+        }
+
+        window.toggleFavorite = function(id) {
+            if (favorites.includes(id)) {
+                favorites = favorites.filter(favId => favId !== id);
+                showToast("Вилучено з обраного");
+            } else {
+                favorites.push(id);
+                showToast("Додано в обране ⭐");
+            }
+            localStorage.setItem('hetman_favs', JSON.stringify(favorites));
+            updateFavCount();
+            renderContent();
+        }
+
+        function updateFavCount() {
+            favCountLabel.textContent = favorites.length;
+        }
+
+        window.copyTopicContent = function(id) {
+            const topic = topicsData.find(t => t.id === id);
+            if (!topic) return;
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = topic.items.join('\n• ');
+            const plainItems = tempDiv.innerText;
+
+            const textToCopy = `${topic.title}\n${topic.summary}\n\n• ${plainItems}\n\nКлючові факти для НМТ: ${topic.nmtKey}`;
+            copyToClipboard(textToCopy);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast("Скопійовано!");
+                }).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast("Скопійовано!");
+            } catch (err) {
+                showToast("Помилка копіювання");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('hetman_theme') || 'dark';
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('hetman_theme', isDark ? 'dark' : 'light');
+        }
+
+        function changeFontScale(delta) {
+            fontScale = Math.min(Math.max(fontScale + delta, 80), 130);
+            localStorage.setItem('hetman_font_scale', fontScale);
+            applyFontScale(fontScale);
+        }
+
+        function applyFontScale(scale) {
+            document.getElementById('text-size-label').textContent = `${scale}%`;
+            document.getElementById('app-container').style.fontSize = `${scale / 100}rem`;
+        }
+
+        function openQuizModal() {
+            currentFlashcardIndex = 0;
+            renderFlashcard();
+            document.getElementById('quiz-modal').classList.remove('hidden');
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').classList.add('hidden');
+        }
+
+        function renderFlashcard() {
+            const card = flashcards[currentFlashcardIndex];
+            document.getElementById('card-step-indicator').textContent = `Питання ${currentFlashcardIndex + 1} з ${flashcards.length}`;
+            document.getElementById('card-question').textContent = card.q;
+            document.getElementById('card-answer').textContent = card.a;
+            document.getElementById('card-answer').classList.add('hidden');
+
+            document.getElementById('btn-prev-card').disabled = currentFlashcardIndex === 0;
+            document.getElementById('btn-prev-card').classList.toggle('opacity-50', currentFlashcardIndex === 0);
+        }
+
+        function toggleFlashcardAnswer() {
+            document.getElementById('card-answer').classList.toggle('hidden');
+        }
+
+        function navigateFlashcard(direction) {
+            currentFlashcardIndex += direction;
+            if (currentFlashcardIndex >= flashcards.length) {
+                currentFlashcardIndex = 0;
+            } else if (currentFlashcardIndex < 0) {
+                currentFlashcardIndex = flashcards.length - 1;
+            }
+            renderFlashcard();
+        }
+    </script>
+</body>
+</html>
